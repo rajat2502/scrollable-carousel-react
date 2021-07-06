@@ -2,7 +2,7 @@ import PlaceholderImage from './PlaceholderImage';
 
 function CarouselCard({ data }) {
   return (
-    <div className='relative rounded-lg flex-shrink-0'>
+    <div className='carousel-card relative rounded-lg flex-shrink-0'>
       <div className='m-4 shadow-lg'>
         <PlaceholderImage
           className='rounded-lg h-80'
