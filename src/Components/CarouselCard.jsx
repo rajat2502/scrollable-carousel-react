@@ -6,8 +6,9 @@ function CarouselCard({ data }) {
       <div className='m-4 shadow-lg'>
         <PlaceholderImage
           className='rounded-lg h-80'
-          alt='carousel-img'
+          alt={data.alt_description}
           src={data.urls.regular}
+          width={(320 * data.width) / data.height}
         />
         <a
           href={data.user.links.html}
