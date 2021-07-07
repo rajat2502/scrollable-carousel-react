@@ -1,22 +1,9 @@
+import { downloadImg } from '../utils/helpers';
+
 import PlaceholderImage from './PlaceholderImage';
 import Icon from './Icon';
 
 function CarouselCard({ data }) {
-  const toDataURL = async (url) => {
-    const data = await fetch(url);
-    const res = await data.blob();
-    return URL.createObjectURL(res);
-  };
-
-  const downloadImg = async () => {
-    const link = document.createElement('a');
-    link.href = await toDataURL(data.urls.regular);
-    link.download = 'download.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <div className='carousel-card relative rounded-lg flex-shrink-0'>
       <div className='m-4 shadow-lg'>
@@ -45,7 +32,10 @@ function CarouselCard({ data }) {
               <span className='text-xs'>{data.likes} likes received</span>
             </div>
           </a>
-          <button onClick={downloadImg} title='Download Image'>
+          <button
+            onClick={() => downloadImg(data.urls.regular)}
+            title='Download Image'
+          >
             <Icon name='download' />
           </button>
         </div>

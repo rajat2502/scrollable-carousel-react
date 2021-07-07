@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 
+@font-face {
+  font-family: proximaNova;
+  src: url('./assets/ProximaNovaRegular.ttf');
+  font-display: swap;
+}
+
+body {
+  font-family: proximaNova, sans-serif;
+}
+
 .carousel {
   transition: all 0.2s;
   will-change: transform;

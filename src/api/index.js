@@ -20,10 +20,10 @@ export const fetchImages = async (searchTerm) => {
 
 export const fetchRandomImages = async () => {
   try {
-    const data = await axios.get(
+    const { data } = await axios.get(
       `${unsplashApiUrl}/photos/random?count=${randomCount()}&${unsplashApiKey}`
     );
-    console.log(data);
+    return data;
   } catch (err) {
     console.log(err.response);
   }

@@ -1,26 +1,52 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
-import { fetchImages } from '../api';
+import { fetchImages, fetchRandomImages } from '../api';
 
-import Icon from './Icon';
+import CarouselHeader from './CarouselHeader';
 import CarouselCard from './CarouselCard';
+import CarouselControls from './CarouselControls';
+
+import Loader from '../assets/loader.gif';
 
 function Carousel() {
   const target = useRef(null);
 
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
   const [images, setImages] = useState([]);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [startX, setStartX] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [leftScroll, setLeftScroll] = useState(0);
 
-  const getImages = async () => {
-    const data = await fetchImages('india');
+  const setData = (data) => {
     if (data.error) {
       setError(data.error);
     } else {
       setImages(data);
+    }
+    setLoading(false);
+  };
+
+  const getImages = useCallback(async () => {
+    setLoading(true);
+    const data = await fetchImages('india');
+    setData(data);
+  }, []);
+
+  const getRandomImages = async () => {
+    setLoading(true);
+    const data = await fetchRandomImages();
+    setData(data);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      setLoading(true);
+      const data = await fetchImages(searchTerm);
+      setData(data);
     }
   };
 
@@ -69,44 +95,50 @@ function Carousel() {
 
   useEffect(() => {
     getImages();
-  }, []);
+  }, [getImages]);
 
   console.log('render');
   return (
-    <>
+    <div>
+      <CarouselHeader
+        handleSubmit={handleSubmit}
+        setSearchTerm={setSearchTerm}
+        getRandomImages={getRandomImages}
+      />
       {error ? (
         <p className='m-4 text-red-500 font-medium text-center'>{error}</p>
       ) : (
         <>
-          <div
-            ref={target}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onScroll={scrollListener}
-            className='carousel relative overflow-x-auto flex transition-all delay-150 duration-300 ease-in-out'
-          >
-            {images.map((image) => (
-              <CarouselCard key={image.id} data={image} />
-            ))}
-          </div>
-          <div className='flex w-screen justify-center'>
-            <button
-              disabled={!scrollProgress}
-              className='bg-gray-200 p-1 rounded m-2'
-            >
-              <Icon name='left' />
-            </button>
-            <button
-              disabled={scrollProgress === 100}
-              className='bg-gray-200 p-1 rounded m-2'
-            >
-              <Icon name='right' />
-            </button>
-          </div>
+          {loading ? (
+            <img className='mt-12 mx-auto h-24' src={Loader} alt='loader' />
+          ) : (
+            <>
+              {images.length ? (
+                <>
+                  <div
+                    ref={target}
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onScroll={scrollListener}
+                    className='carousel relative overflow-x-auto flex transition-all delay-150 duration-300 ease-in-out'
+                  >
+                    {images.map((image) => (
+                      <CarouselCard key={image.id} data={image} />
+                    ))}
+                  </div>
+                  <CarouselControls scrollProgress={scrollProgress} />{' '}
+                </>
+              ) : (
+                <p className='text-center mt-4 font-medium'>
+                  No images found for the search term!
+                </p>
+              )}
+            </>
+          )}
         </>
       )}
-    </>
+    </div>
   );
 }
 
