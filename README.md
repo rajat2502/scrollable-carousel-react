@@ -51,6 +51,8 @@ $ yarn serve
 
 ### Screenshot(s)
 
-![image](https://user-images.githubusercontent.com/42200276/124775033-e8760a00-df5b-11eb-9524-b770bf76edfb.png)
+![mediamodifier_image](https://user-images.githubusercontent.com/42200276/124787244-fa5caa80-df65-11eb-8b8d-01a99d3436cb.jpeg)
 
-![image](https://user-images.githubusercontent.com/42200276/124779202-34767e00-df5f-11eb-8887-62965b01d8d8.png)
+<div align="center">
+  <img width="350" height="662" src="https://user-images.githubusercontent.com/42200276/124788575-1745ad80-df67-11eb-9e8d-53fa5a63f1aa.png" />
+</div>
