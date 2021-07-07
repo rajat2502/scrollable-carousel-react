@@ -47,7 +47,7 @@ function Carousel() {
   const handleMouseMove = (e) => {
     if (isDragging && startX) {
       const endX = e.pageX - target.current.offsetLeft;
-      const walk = (endX - startX) * 3;
+      const walk = endX - startX;
 
       target.current.scrollLeft = leftScroll - walk;
     }

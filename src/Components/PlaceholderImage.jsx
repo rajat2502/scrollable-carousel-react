@@ -12,7 +12,7 @@ function PlaceholderImage({ src, alt, width, ...restProps }) {
     image.onload = () => {
       // a small gap so that the placeholder div appears,
       //  as the API is damn fast
-      setTimeout(() => setCurrentSrc(src), 300);
+      setTimeout(() => setCurrentSrc(src), 100);
     };
   });
 
