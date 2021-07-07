@@ -126,7 +126,7 @@ function Carousel() {
   }, [getImages]);
 
   return (
-    <div>
+    <div className='sm:mt-24'>
       <CarouselHeader
         setData={setData}
         setLoading={setLoading}

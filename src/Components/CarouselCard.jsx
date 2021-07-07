@@ -1,17 +1,32 @@
+import { useState, useEffect } from 'react';
+
 import { downloadImg } from '../utils/helpers';
 
 import PlaceholderImage from './PlaceholderImage';
 import Icon from './Icon';
 
 function CarouselCard({ data }) {
+  const [matches, setMatches] = useState(
+    window.matchMedia('(max-width: 640px)').matches
+  );
+
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    window.matchMedia('(max-width: 640px)').addEventListener('change', handler);
+  });
+
   return (
     <div className='carousel-card relative rounded-lg flex-shrink-0'>
-      <div className='m-4 shadow-lg'>
+      <div className='m-2 sm:m-4 shadow-lg'>
         <PlaceholderImage
-          className='rounded-lg h-80'
+          className='rounded-lg h-64 sm:h-80'
           alt={data.alt_description}
           src={data.urls.regular}
-          width={(320 * data.width) / data.height}
+          width={
+            matches
+              ? (254 * data.width) / data.height
+              : (320 * data.width) / data.height
+          }
         />
         <div className='absolute left-6 right-6 bottom-6 flex justify-between	'>
           <a
