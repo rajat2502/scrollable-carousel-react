@@ -31,7 +31,7 @@ function Carousel() {
 
   const getImages = useCallback(async () => {
     setLoading(true);
-    const data = await fetchImages('india');
+    const data = await fetchImages('space');
     setData(data);
   }, []);
 
