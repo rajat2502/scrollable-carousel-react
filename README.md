@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Scrollable Carousel React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a basic horizontal carousel built using ReactJS. 
 
-## Available Scripts
+**See Hosted Version [here](https://scrollable-carousel-react.netlify.app/)**
 
-In the project directory, you can run:
+### Features
 
-### `yarn start`
+- Carousel is scrollable through **controls** as well as using **touch**.
+- Shows **placeholder images** until the actual image is completely loaded in the background.
+- Fetch random images as well as images related to a keyword.
+- Ability to downlod the image.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- ReactJS (Frontend library)
+- Tailwindcss (CSS Framework)
+- Unsplash API
+- Netlify.com (For Hosting)
 
-### `yarn test`
+<details>
+  <summary><strong>How to setup locally?</strong></summary>
+ 
+  
+- Fork and Clone the repo using
+```
+$ git clone https://github.com/rajat2502/scrollable-carousel-react
+$ cd scrollable-carousel-react
+```
+- Get a new API key from [https://unsplash.com/documentation](https://unsplash.com/documentation) and replace it with `REACT_APP_UNSPLASH_KEY` in `.env.example`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Rename the file `.env.example` to `.env`
 
-### `yarn build`
+- Install node dependencies using
+```
+$ yarn add
+```
+- Run Server at localhost using
+```
+$ yarn serve
+```
+  
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot(s)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![image](https://user-images.githubusercontent.com/42200276/124775033-e8760a00-df5b-11eb-9524-b770bf76edfb.png)
