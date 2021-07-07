@@ -1,6 +1,21 @@
+import { useState } from 'react';
+
+import { fetchImages } from '../api';
+
 import Icon from './Icon';
 
-function CarouselHeader({ handleSubmit, setSearchTerm, getRandomImages }) {
+function CarouselHeader({ setData, setLoading, getRandomImages }) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (searchTerm) {
+      setLoading(true);
+      const data = await fetchImages(searchTerm);
+      setData(data);
+    }
+  };
+
   return (
     <div className='mx-2 my-4 flex justify-between flex-wrap'>
       <form onSubmit={handleSubmit} className='flex flex-wrap'>

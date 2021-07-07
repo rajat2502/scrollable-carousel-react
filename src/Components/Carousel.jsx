@@ -13,7 +13,6 @@ function Carousel() {
 
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
   const [images, setImages] = useState([]);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [startX, setStartX] = useState(null);
@@ -41,12 +40,41 @@ function Carousel() {
     setData(data);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (searchTerm) {
-      setLoading(true);
-      const data = await fetchImages(searchTerm);
-      setData(data);
+  const prev = () => {
+    const left = target.current.scrollLeft,
+      count = target.current.childElementCount;
+    let newX = 0;
+
+    for (let i = 0; i < count; i++) {
+      newX += target.current.children[i].clientWidth;
+      if (left < newX) {
+        target.current.scroll({
+          left: newX,
+          top: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
+    }
+  };
+
+  const next = () => {
+    const left = target.current.scrollLeft,
+      count = target.current.childElementCount;
+    let newX = 0;
+
+    for (let i = 0; i < count; i++) {
+      const elementWidth = target.current.children[i].clientWidth;
+      newX += elementWidth;
+      console.log({ left, newX });
+      if (left <= newX) {
+        target.current.scroll({
+          left: newX - elementWidth,
+          top: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
     }
   };
 
@@ -97,12 +125,11 @@ function Carousel() {
     getImages();
   }, [getImages]);
 
-  console.log('render');
   return (
     <div>
       <CarouselHeader
-        handleSubmit={handleSubmit}
-        setSearchTerm={setSearchTerm}
+        setData={setData}
+        setLoading={setLoading}
         getRandomImages={getRandomImages}
       />
       {error ? (
@@ -127,7 +154,11 @@ function Carousel() {
                       <CarouselCard key={image.id} data={image} />
                     ))}
                   </div>
-                  <CarouselControls scrollProgress={scrollProgress} />{' '}
+                  <CarouselControls
+                    prev={prev}
+                    next={next}
+                    scrollProgress={scrollProgress}
+                  />{' '}
                 </>
               ) : (
                 <p className='text-center mt-4 font-medium'>
