@@ -13,6 +13,11 @@ function CarouselCard({ data }) {
   useEffect(() => {
     const handler = (e) => setMatches(e.matches);
     window.matchMedia('(max-width: 640px)').addEventListener('change', handler);
+
+    return () =>
+      window
+        .matchMedia('(max-width: 640px)')
+        .addEventListener('change', handler);
   });
 
   return (
