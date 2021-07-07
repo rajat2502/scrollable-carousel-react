@@ -3,7 +3,7 @@ import axios from 'axios';
 const unsplashApiUrl = 'https://api.unsplash.com/';
 const unsplashApiKey = process.env.REACT_APP_UNSPLASH_KEY;
 
-const randomCount = () => Math.floor(Math.random() * 30) + 1;
+const randomCount = () => Math.floor(Math.random() * 30) + 6;
 
 export const fetchImages = async (searchTerm) => {
   try {

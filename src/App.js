@@ -2,7 +2,7 @@ import Carousel from './Components/Carousel';
 function App() {
   return (
     <div className='p-6 bg-gray-300 w-screen h-screen overflow-x-hidden'>
-      <h1 className='tracking-wider text-center my-6 text-4xl font-bold text-blue-500 uppercase'>
+      <h1 className='tracking-wider text-center my-6 text-4xl font-bold text-blue-500'>
         Unsplash Gallery
       </h1>
       <Carousel />
