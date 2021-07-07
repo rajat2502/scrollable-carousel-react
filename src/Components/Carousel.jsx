@@ -26,6 +26,7 @@ function Carousel() {
       setImages(data);
     }
     setLoading(false);
+    setScrollProgress(0);
   };
 
   const getImages = useCallback(async () => {

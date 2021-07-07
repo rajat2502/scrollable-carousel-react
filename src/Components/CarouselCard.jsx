@@ -27,6 +27,7 @@ function CarouselCard({ data }) {
               ? (254 * data.width) / data.height
               : (320 * data.width) / data.height
           }
+          delay={100}
         />
         <div className='absolute left-6 right-6 bottom-6 flex justify-between	'>
           <a
@@ -35,10 +36,11 @@ function CarouselCard({ data }) {
             rel='noreferrer'
             className='flex items-center'
           >
-            <img
+            <PlaceholderImage
               src={data.user.profile_image.small}
               alt='Photographer'
               className='w-8 h-8 rounded-full mr-2'
+              delay={0}
             />
             <div className='flex flex-col text-white'>
               <span className='font-bold text-sm'>
@@ -50,6 +52,7 @@ function CarouselCard({ data }) {
           <button
             onClick={() => downloadImg(data.urls.regular)}
             title='Download Image'
+            className='h-8 w-8 flex justify-center items-center bg-white rounded'
           >
             <Icon name='download' />
           </button>

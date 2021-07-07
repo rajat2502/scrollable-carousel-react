@@ -6,14 +6,14 @@ function CarouselControls({ scrollProgress, prev, next }) {
       <button
         disabled={!scrollProgress}
         onClick={next}
-        className='disabled:opacity-50 bg-gray-100 p-1 rounded m-2'
+        className='disabled:opacity-50 bg-gray-300 p-1 rounded m-2'
       >
         <Icon name='left' />
       </button>
       <button
         disabled={scrollProgress === 100}
         onClick={prev}
-        className='disabled:opacity-50 bg-gray-100 p-1 rounded m-2'
+        className='disabled:opacity-50 bg-gray-300 p-1 rounded m-2'
       >
         <Icon name='right' />
       </button>

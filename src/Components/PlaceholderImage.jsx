@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 
 import Placeholder from '../assets/placeholder.png';
 
-function PlaceholderImage({ src, alt, width, ...restProps }) {
+function PlaceholderImage({ src, alt, width, delay, ...restProps }) {
   const [currentSrc, setCurrentSrc] = useState(Placeholder);
-  // const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const image = new Image();
@@ -12,7 +11,7 @@ function PlaceholderImage({ src, alt, width, ...restProps }) {
     image.onload = () => {
       // a small gap so that the placeholder div appears,
       //  as the API is damn fast
-      setTimeout(() => setCurrentSrc(src), 100);
+      setTimeout(() => setCurrentSrc(src), delay);
     };
   });
 
