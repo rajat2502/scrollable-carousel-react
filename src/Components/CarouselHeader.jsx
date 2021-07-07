@@ -27,8 +27,9 @@ function CarouselHeader({ setData, setLoading, getRandomImages }) {
         />
         <button
           type='submit'
+          disabled={!searchTerm}
           title='Search Images'
-          className='flex items-center justify-center rounded py-2 px-4 my-2 w-full sm:w-auto bg-blue-500 transition duration-500 ease-in-out hover:bg-blue-600 text-white font-medium'
+          className='disabled:opacity-50 flex items-center justify-center rounded py-2 px-4 my-2 w-full sm:w-auto bg-blue-500 transition duration-500 ease-in-out hover:bg-blue-600 text-white font-medium search-button'
         >
           <Icon name='search' /> &nbsp;Search Images
         </button>

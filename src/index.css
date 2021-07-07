@@ -29,6 +29,10 @@ button:disabled {
   transform: scale(1);
 }
 
+.search-button:disabled:hover {
+  background-color: #3b82f6;
+}
+
 .carousel-card {
   user-select: none;
 }
