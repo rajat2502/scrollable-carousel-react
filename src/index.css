@@ -22,6 +22,7 @@ button:disabled {
   cursor: pointer;
   user-select: none;
   transform: scale(0.99);
+  scrollbar-width: none;
 }
 
 .carousel-active {
@@ -36,8 +37,7 @@ button:disabled {
 .carousel-card,
 .carousel-card a,
 .carousel-card img {
-  user-select: none;
-  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .carousel::-webkit-scrollbar {
