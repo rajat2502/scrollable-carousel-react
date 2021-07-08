@@ -33,28 +33,6 @@ button:disabled {
 .search-button:disabled:hover {
   background-color: #3b82f6;
 }
-/* 
-.carousel-card,
-.carousel-card a,
-.carousel-card img {
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -o-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  -ms-user-drag: none;
-  user-drag: none;
-}
-/* 
-.carousel-card button {
-  pointer-events: auto;
-} */
 
 .carousel::-webkit-scrollbar {
   display: none;
