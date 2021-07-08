@@ -6,8 +6,6 @@ import CarouselHeader from './CarouselHeader';
 import CarouselCard from './CarouselCard';
 import CarouselControls from './CarouselControls';
 
-import Loader from '../assets/loader.gif';
-
 function Carousel() {
   const target = useRef(null);
 
@@ -138,11 +136,12 @@ function Carousel() {
       ) : (
         <>
           {loading ? (
-            <img className='mt-12 mx-auto h-24' src={Loader} alt='loader' />
+            <div className='loader mt-12 mx-auto' />
           ) : (
             <>
               {images.length ? (
                 <>
+                  <p className='m-2'>Total result(s): {images.length}</p>
                   <div
                     ref={target}
                     onMouseDown={handleMouseDown}

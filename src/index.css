@@ -44,4 +44,32 @@ button:disabled {
   display: none;
 }
 
+.loader {
+  border: 8px solid #d1d5db;
+  border-radius: 50%;
+  border-top: 8px solid #3b82f6;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @tailwind utilities;
