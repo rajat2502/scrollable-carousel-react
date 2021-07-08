@@ -33,6 +33,7 @@ function CarouselCard({ data }) {
               : (320 * data.width) / data.height
           }
           delay={100}
+          onMouseDown={(e) => e.preventDefault()}
         />
         <div className='absolute left-6 right-6 bottom-6 flex justify-between	'>
           <a
@@ -40,12 +41,14 @@ function CarouselCard({ data }) {
             target='_blank'
             rel='noreferrer'
             className='flex items-center'
+            onMouseDown={(e) => e.preventDefault()}
           >
             <PlaceholderImage
               src={data.user.profile_image.small}
               alt='Photographer'
               className='w-8 h-8 rounded-full mr-2'
               delay={0}
+              onMouseDown={(e) => e.preventDefault()}
             />
             <div className='flex flex-col text-white'>
               <span className='font-bold text-sm'>
