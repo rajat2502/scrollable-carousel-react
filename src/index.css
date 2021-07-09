@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: proximaNova;
-  src: url('./assets/ProximaNovaRegular.ttf');
+  src: url("./assets/ProximaNovaRegular.ttf");
   font-display: swap;
 }
 

@@ -39,14 +39,17 @@ $ cd scrollable-carousel-react
 - Rename the file `.env.example` to `.env`
 
 - Install node dependencies using
+
 ```
 $ yarn add
 ```
+
 - Run Server at localhost using
+
 ```
 $ yarn serve
 ```
-  
+
 </details>
 
 ### Screenshot(s)

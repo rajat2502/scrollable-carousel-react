@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import getIcons from '../utils/getIcons';
+import getIcons from "../utils/getIcons";
 
 const Icon = ({ name, width, height, x, y, fill, style, title, ...rest }) => {
-  let current = getIcons().find((icon) => icon.name === name);
+  const current = getIcons().find((icon) => icon.name === name);
 
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
+      xmlns="http://www.w3.org/2000/svg"
       width={width || current.width}
       height={height || current.height}
       x={x || current.x}

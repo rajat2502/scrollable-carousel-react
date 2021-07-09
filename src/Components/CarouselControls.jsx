@@ -1,21 +1,21 @@
-import Icon from './Icon';
+import Icon from "./Icon";
 
 function CarouselControls({ scrollProgress, prev, next }) {
   return (
-    <div className='flex w-screen justify-center'>
+    <div className="flex w-screen justify-center">
       <button
         disabled={!scrollProgress}
         onClick={next}
-        className='disabled:opacity-50 bg-gray-300 p-1 rounded m-2'
+        className="disabled:opacity-50 bg-gray-300 p-1 rounded m-2"
       >
-        <Icon name='left' />
+        <Icon name="left" />
       </button>
       <button
         disabled={scrollProgress === 100}
         onClick={prev}
-        className='disabled:opacity-50 bg-gray-300 p-1 rounded m-2'
+        className="disabled:opacity-50 bg-gray-300 p-1 rounded m-2"
       >
-        <Icon name='right' />
+        <Icon name="right" />
       </button>
     </div>
   );

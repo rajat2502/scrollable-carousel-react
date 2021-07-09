@@ -1,15 +1,15 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from "react";
 
-import { fetchImages, fetchRandomImages } from '../api';
+import { fetchImages, fetchRandomImages } from "../api";
 
-import CarouselHeader from './CarouselHeader';
-import CarouselCard from './CarouselCard';
-import CarouselControls from './CarouselControls';
+import CarouselHeader from "./CarouselHeader";
+import CarouselCard from "./CarouselCard";
+import CarouselControls from "./CarouselControls";
 
 function Carousel() {
   const target = useRef(null);
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const [images, setImages] = useState([]);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -29,7 +29,7 @@ function Carousel() {
 
   const getImages = useCallback(async () => {
     setLoading(true);
-    const data = await fetchImages('space');
+    const data = await fetchImages("space");
     setData(data);
   }, []);
 
@@ -40,8 +40,8 @@ function Carousel() {
   };
 
   const prev = () => {
-    const left = target.current.scrollLeft,
-      count = target.current.childElementCount;
+    const left = target.current.scrollLeft;
+    const count = target.current.childElementCount;
     let newX = 0;
 
     for (let i = 0; i < count; i++) {
@@ -50,7 +50,7 @@ function Carousel() {
         target.current.scroll({
           left: newX,
           top: 0,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
         return;
       }
@@ -58,8 +58,8 @@ function Carousel() {
   };
 
   const next = () => {
-    const left = target.current.scrollLeft,
-      count = target.current.childElementCount;
+    const left = target.current.scrollLeft;
+    const count = target.current.childElementCount;
     let newX = 0;
 
     for (let i = 0; i < count; i++) {
@@ -70,7 +70,7 @@ function Carousel() {
         target.current.scroll({
           left: newX - elementWidth,
           top: 0,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
         return;
       }
@@ -94,7 +94,7 @@ function Carousel() {
     setIsDragging(true);
     setStartX(e.pageX - target.current.offsetLeft);
     setLeftScroll(target.current.scrollLeft);
-    target.current.classList.add('carousel-active');
+    target.current.classList.add("carousel-active");
   };
 
   const handleMouseMove = (e) => {
@@ -110,13 +110,13 @@ function Carousel() {
     setIsDragging(false);
     setStartX(null);
     setLeftScroll(0);
-    target.current.classList.remove('carousel-active');
+    target.current.classList.remove("carousel-active");
   };
 
   useEffect(() => {
-    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener("mouseup", handleMouseUp);
     return () => {
-      document.removeEventListener('onmouseup', handleMouseUp);
+      document.removeEventListener("onmouseup", handleMouseUp);
     };
   }, []);
 
@@ -125,30 +125,30 @@ function Carousel() {
   }, [getImages]);
 
   return (
-    <div className='sm:mt-24'>
+    <div className="sm:mt-24">
       <CarouselHeader
         setData={setData}
         setLoading={setLoading}
         getRandomImages={getRandomImages}
       />
       {error ? (
-        <p className='m-4 text-red-500 font-medium text-center'>{error}</p>
+        <p className="m-4 text-red-500 font-medium text-center">{error}</p>
       ) : (
         <>
           {loading ? (
-            <div className='loader mt-12 mx-auto' />
+            <div className="loader mt-12 mx-auto" />
           ) : (
             <>
               {images.length ? (
                 <>
-                  <p className='m-2'>Total result(s): {images.length}</p>
+                  <p className="m-2">Total result(s): {images.length}</p>
                   <div
                     ref={target}
                     onMouseDown={handleMouseDown}
                     onMouseMove={handleMouseMove}
                     onMouseUp={handleMouseUp}
                     onScroll={scrollListener}
-                    className='carousel relative overflow-x-auto flex transition-all delay-150 duration-300 ease-in-out'
+                    className="carousel relative overflow-x-auto flex transition-all delay-150 duration-300 ease-in-out"
                   >
                     {images.map((image) => (
                       <CarouselCard key={image.id} data={image} />
@@ -158,10 +158,10 @@ function Carousel() {
                     prev={prev}
                     next={next}
                     scrollProgress={scrollProgress}
-                  />{' '}
+                  />{" "}
                 </>
               ) : (
-                <p className='text-center mt-4 font-medium'>
+                <p className="text-center mt-4 font-medium">
                   No images found for the search term!
                 </p>
               )}
