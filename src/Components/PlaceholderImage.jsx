@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-import Placeholder from '../assets/placeholder.png';
+import Placeholder from "../assets/placeholder.png";
 
 function PlaceholderImage({ src, alt, width, delay, ...restProps }) {
   const [currentSrc, setCurrentSrc] = useState(Placeholder);

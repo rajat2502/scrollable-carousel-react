@@ -5,9 +5,9 @@ const toDataURL = async (url) => {
 };
 
 export const downloadImg = async (img) => {
-  const link = document.createElement('a');
+  const link = document.createElement("a");
   link.href = await toDataURL(img);
-  link.download = 'download.jpg';
+  link.download = "download.jpg";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

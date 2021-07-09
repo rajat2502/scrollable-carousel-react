@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const unsplashApiUrl = 'https://api.unsplash.com/';
+const unsplashApiUrl = "https://api.unsplash.com/";
 const unsplashApiKey = process.env.REACT_APP_UNSPLASH_KEY;
 
 const randomCount = () => Math.floor(Math.random() * 30) + 6;
